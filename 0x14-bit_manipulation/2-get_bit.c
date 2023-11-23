@@ -1,12 +1,18 @@
 #include "main.h"
-/**
- * print_binary - prints the binary representation of number
- * @n: the number in base 10
- */
-void print_binary(unsigned long int n)
-{
-	if (n > 1)
-		print_binary(n >> 1);
 
-	_putchar((n & 1) + '0');
+/**
+ * get_bit - Gets the value of a bit at a given index
+ * @n: The bit
+ * @index: the index
+ * Return: the value of index
+ */
+int get_bit(unsigned long int n, unsigned int index)
+{
+	if (index >= (sizeof(unsigned long int) * 8))
+		return (-1);
+
+	if ((n & (1 << index)) == 0)
+		return (0);
+
+	return (1);
 }
